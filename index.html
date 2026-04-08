@@ -1,0 +1,518 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Nadil's Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/custom.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<style>
+		:root{
+			--bg-main:#081426;
+			--bg-secondary:#0d1b2f;
+			--bg-card:#10233d;
+			--bg-card-2:#132b49;
+			--text-main:#eaf2ff;
+			--text-soft:#b8c7e6;
+			--accent:#4ea1ff;
+			--accent-2:#77b8ff;
+			--border:rgba(255,255,255,0.08);
+			--shadow:0 18px 40px rgba(0,0,0,0.35);
+		}
+
+		html, body {
+			background: linear-gradient(180deg, #06101f 0%, #081426 45%, #0b1830 100%) !important;
+			color: var(--text-main) !important;
+			scroll-behavior: smooth;
+		}
+
+		body:before {
+			background: linear-gradient(180deg, rgba(7,16,31,0.92), rgba(11,24,48,0.96)) !important;
+		}
+
+		#wrapper, #main, #footer, #copyright, #nav, #header, #intro {
+			background-color: transparent !important;
+		}
+
+		#intro {
+			background: radial-gradient(circle at top, rgba(78,161,255,0.12), rgba(8,20,38,0.82) 55%, rgba(8,20,38,0.98) 100%) !important;
+			color: var(--text-main) !important;
+			padding-bottom: 4rem;
+		}
+
+		#intro p,
+		.post p,
+		section.split.contact p,
+		section.split.contact a,
+		#copyright,
+		label,
+		ul.links li a,
+		ul.icons li a,
+		#header .logo,
+		.about-card p,
+		.passport-placeholder span {
+			color: var(--text-soft) !important;
+		}
+
+		h1, h2, h3, h4, h5, h6, strong, b {
+			color: var(--text-main) !important;
+		}
+
+		#nav {
+			background: rgba(7, 18, 34, 0.88) !important;
+			border: 1px solid var(--border);
+			backdrop-filter: blur(10px);
+			box-shadow: var(--shadow);
+		}
+
+		#nav ul.links {
+			flex-wrap: wrap;
+		}
+
+		#nav ul.links li.active a,
+		#nav ul.links li a:hover,
+		.actions .button,
+		input[type="submit"] {
+			background: var(--accent) !important;
+			color: #ffffff !important;
+			border: none !important;
+			box-shadow: 0 10px 24px rgba(78,161,255,0.28);
+		}
+
+		.actions .button:hover,
+		input[type="submit"]:hover {
+			background: var(--accent-2) !important;
+		}
+
+		.post,
+		.post.featured,
+		section.posts article,
+		#footer,
+		.about-card {
+			background: linear-gradient(180deg, rgba(16,35,61,0.96), rgba(12,27,47,0.96)) !important;
+			border: 1px solid var(--border) !important;
+			box-shadow: var(--shadow);
+			border-radius: 18px;
+		}
+
+		section.posts article {
+			padding: 2rem !important;
+		}
+
+		.image-container,
+		.image.fit img,
+		.passport-placeholder {
+			border-radius: 14px;
+			overflow: hidden;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			background: rgba(255,255,255,0.04) !important;
+			border: 1px solid rgba(255,255,255,0.12) !important;
+			color: var(--text-main) !important;
+			border-radius: 12px !important;
+		}
+
+		input[type="text"]::placeholder,
+		input[type="email"]::placeholder,
+		textarea::placeholder {
+			color: #9eb0d2;
+		}
+
+		.split.contact > section {
+			border-color: var(--border) !important;
+		}
+
+		a {
+			color: var(--accent-2) !important;
+		}
+
+		.feedback-note {
+			margin-top: 1rem;
+			padding: 0.85rem 1rem;
+			background: rgba(78,161,255,0.08);
+			border: 1px solid rgba(78,161,255,0.18);
+			border-radius: 12px;
+			color: var(--text-soft);
+			font-size: 0.95rem;
+		}
+
+		.success-banner {
+			display: none;
+			margin-top: 1rem;
+			padding: 0.9rem 1rem;
+			border-radius: 12px;
+			background: rgba(70, 201, 125, 0.14);
+			border: 1px solid rgba(70, 201, 125, 0.25);
+			color: #dff7e7;
+		}
+
+		.error-banner {
+			display: none;
+			margin-top: 1rem;
+			padding: 0.9rem 1rem;
+			border-radius: 12px;
+			background: rgba(255, 99, 99, 0.12);
+			border: 1px solid rgba(255, 99, 99, 0.24);
+			color: #ffdede;
+		}
+
+		.success-banner.show,
+		.error-banner.show {
+			display: block;
+		}
+
+		.about-grid {
+			display: grid;
+			grid-template-columns: 220px 1fr;
+			gap: 2rem;
+			align-items: center;
+			max-width: 980px;
+			margin: 2rem auto 0;
+		}
+
+		.passport-placeholder {
+			width: 220px;
+			height: 260px;
+			background: linear-gradient(180deg, rgba(78,161,255,0.16), rgba(255,255,255,0.04));
+			border: 1px dashed rgba(255,255,255,0.2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 1rem;
+			margin: 0 auto;
+		}
+
+		.passport-placeholder img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+
+		.about-card {
+			padding: 2rem;
+			text-align: left;
+		}
+
+		.section-anchor {
+			scroll-margin-top: 6rem;
+		}
+
+		.section-spacer {
+			margin-top: 3rem;
+		}
+
+		.mini-grid {
+			display:grid;
+			grid-template-columns: repeat(2, minmax(0,1fr));
+			gap:2rem;
+		}
+
+		.exp-list {
+			list-style:none;
+			padding-left:0;
+			margin:0;
+		}
+
+		.exp-list li {
+			padding: 0.8rem 0;
+			border-bottom: 1px solid var(--border);
+			color: var(--text-soft);
+		}
+
+		.exp-list li:last-child {
+			border-bottom:none;
+		}
+
+		@media screen and (max-width: 736px) {
+			.about-grid,
+			.mini-grid {
+				grid-template-columns: 1fr;
+			}
+			.passport-placeholder {
+				width: 180px;
+				height: 220px;
+			}
+			.about-card {
+				text-align:center;
+			}
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper" class="fade-in">
+		<div id="intro" class="section-anchor">
+			<h1>Nadil Saad<br />Portfolio</h1>
+			<div class="about-grid">
+				<div class="passport-placeholder">
+					<span class="image-container"><img src="images/passport.png" alt="UI/UX Design"></span>
+					
+				</div>
+				<div class="about-card" id="about">
+					<h2>About Me</h2>
+					<p>I am a second-year Information Systems Management student with strong skills in Database Systems, UI/UX design, website development, and desktop application development. I focus on creating innovative, user-centered digital solutions that address real-world challenges.</p>
+					<p>From designing intuitive interfaces to developing robust backend systems and integrating databases, I build complete and efficient digital products that deliver real value to users.</p>
+					<ul class="actions">
+						<li><a href="#skills" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<header id="header">
+			<a href="#about" class="logo">About Me</a>
+		</header>
+
+		<nav id="nav">
+			<ul class="links">
+				<li class="active"><a href="#about">About Me</a></li>
+				<li><a href="#skills">My Skills</a></li>
+				<li><a href="#projects">Featured Projects</a></li>
+				<li><a href="#experience">Experience &amp; Education</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+			<ul class="icons">
+				<li><a href="https://x.com/nadil_saad" class="icon brands fa-twitter"><span class="label">X</span></a></li>
+				<li><a href="https://www.linkedin.com/nadil-saad" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://facebook.com/nadilsaad17" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="https://instagram.com/nadil_saad" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/nadilsaad" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
+		</nav>
+
+		<div id="main">
+			<article class="post featured section-anchor" id="skills">
+				<header class="major">
+					<h2>My Skills</h2>
+					<p>I possess a strong combination of technical, design, and problem-solving skills that enable me to develop effective, user-centered, and practical digital solutions. My expertise covers database management, UI/UX design, and the development of both web and desktop applications, with a focus on functionality, efficiency, and visual quality.</p>
+				</header>
+			</article>
+
+			<section class="posts">
+				<article>
+					<header><h2>Database Management</h2></header>
+					<div class="image-container"><img src="images/databasenadil.png" alt="Database"></div>
+					<p>Strong knowledge in database design, SQL, normalization, data modeling, and the organization of structured data for efficient system performance.</p>
+				</article>
+				<article>
+					<header><h2>UI/UX Design</h2></header>
+					<div class="image-container"><img src="images/UI_UXnadil.png" alt="UI/UX Design"></div>
+					<p>Ability to design clean, intuitive, and user-friendly interfaces that enhance usability, improve user experience, and create visually appealing digital products.</p>
+				</article>
+				<article>
+					<header><h2>Web Development</h2></header>
+					<div class="image-container"><img src="images/webDnadil.png" alt="Web Development"></div>
+					<p>Experience in developing responsive, functional, and modern websites that address real-world needs while maintaining performance and accessibility.</p>
+				</article>
+				<article>
+					<header><h2>Desktop Application Development</h2></header>
+					<div class="image-container"><img src="images/Desktop.png" alt="Desktop Application Development"></div>
+					<p>Ability to design and build practical desktop applications that support business processes, improve efficiency, and solve operational challenges.</p>
+				</article>
+				<article>
+					<header><h2>System Analysis and Problem Solving</h2></header>
+					<div class="image-container"><img src="images/Problem-solving.png" alt="System Analysis and Problem Solving"></div>
+					<p>Skilled in understanding user requirements, analyzing system needs, and transforming ideas into well-structured and effective digital solutions.</p>
+				</article>
+				<article>
+					<header><h2>Tools and Technologies</h2></header>
+					<div class="image-container"><img src="images/tools.png" alt="Tools and Technologies"></div>
+					<p><b>Programming Languages:</b> Python, Java, JavaScript, HTML, CSS<br />
+					<b>Frameworks &amp; Libraries:</b> Django, React<br />
+					<b>Development Tools:</b> Vite, Visual Studio Code, GitHub<br />
+					<b>Database Tools:</b> MySQL, SQLite, pgAdmin<br />
+					<b>Design Tools:</b> Figma</p>
+				</article>
+			</section>
+
+			<article class="post featured section-spacer section-anchor" id="projects">
+				<header class="major">
+					<h2>Featured Projects</h2>
+					<p>Presented below are some of the key projects that demonstrate my experience in building practical and impactful digital solutions. These projects reflect my ability to manage different aspects of system development, including front-end and back-end implementation, database design, and user interface design, with a strong focus on functionality, usability, and overall system effectiveness.</p>
+				</header>
+			</article>
+
+			<section class="posts">
+				<article>
+					<header><h2>Life Coach Web Application</h2></header>
+					<a href="#" class="image fit"><img src="images/lifeCoach.png" alt="Life Coach Web Application" /></a>
+					<p>A web-based personal development platform created to help users build better habits, monitor progress, and maintain consistency in their daily growth journey.<br />
+					<b>Technologies Used:</b> React, Vite, Django, Python, PostgreSQL<br />
+					<b>Key Features:</b> User authentication, habit tracking, journaling, progress monitoring, and dashboard interface<br />
+					<b>Role:</b> Full-Stack Developer, UI/UX Designer, and Database Designer</p>
+					<ul class="actions special"><li><a href="#" class="button">Code</a></li></ul>
+				</article>
+				<article>
+					<header><h2>Hostel Management System</h2></header>
+					<a href="#" class="image fit"><img src="images/hostel.png" alt="Hostel Management System" /></a>
+					<p>A desktop application developed to simplify hostel operations by managing student registration, room allocation, vacancy tracking, and payment records in an efficient and organized way.<br />
+					<b>Technologies Used:</b> Python, Tkinter, SQLite/MySQL<br />
+					<b>Key Features:</b> Student registration, room allocation, vacancy tracking, payment management, and hostel record management<br />
+					<b>Role:</b> Designed and developed the application, including the user interface, system functionality, and database structure.</p>
+					<ul class="actions special"><li><a href="#" class="button">Code</a></li></ul>
+				</article>
+				<article>
+					<header><h2>N-Maktaba</h2></header>
+					<a href="#" class="image fit"><img src="images/Nmaktaba.png" alt="N-Maktaba" /></a>
+					<p>A digital learning platform developed to provide students with easy access to academic materials and learning resources in a simple and user-friendly environment.<br />
+					<b>Technologies Used:</b> React, Vite, Django, Python, PostgreSQL<br />
+					<b>Key Features:</b> Access to learning materials, organized resource management, user-friendly interface, and academic content delivery<br />
+					<b>Role:</b> Designed and developed the front-end, back-end, and database structure of the platform.</p>
+					<ul class="actions special"><li><a href="#" class="button">Code</a></li></ul>
+				</article>
+				<article>
+					<header><h2>UNIFORUMS Website</h2></header>
+					<a href="#" class="image fit"><img src="images/uniforum.png" alt="UNIFORUMS Website" /></a>
+					<p>A web-based platform created to give university students the opportunity to exchange ideas, share opinions, and engage in discussions across different fields and areas of interest.<br />
+					<b>Technologies Used:</b> React, Vite, Django, Python, PostgreSQL<br />
+					<b>Key Features:</b> Discussion forums, idea sharing, user interaction, topic-based engagement, and community participation<br />
+					<b>Role:</b> Designed and developed the front-end, back-end, user interface, and database structure of the website.</p>
+					<ul class="actions special"><li><a href="#" class="button">Code</a></li></ul>
+				</article>
+			</section>
+
+			<article class="post featured section-spacer section-anchor" id="experience">
+				<header class="major">
+					<h2>Experience &amp; Education</h2>
+					<p>My academic background and practical project experience have helped me build a strong foundation in Information Systems Management, software development, database design, and UI/UX design. Through both academic learning and hands-on projects, I have developed the ability to design and build digital solutions that are functional, user-centered, and relevant to real-world needs.</p>
+				</header>
+				<div class="mini-grid">
+					<div class="about-card">
+						<h3>Education</h3>
+						<ul class="exp-list">
+							<li><strong>Bachelor's Degree in Information Systems Management</strong><br />Currently pursuing my degree with a focus on software development, database systems, system analysis and design, and user-centered digital solutions.</li>
+							<li><strong>Core Areas of Study</strong><br />Database Systems, System Analysis and Design, UI/UX, Web Development, Desktop Application Development, and Information Management.</li>
+						</ul>
+					</div>
+					<div class="about-card">
+						<h3>Experience</h3>
+						<ul class="exp-list">
+							<li><strong>Full-Stack Project Development</strong><br />Designed and developed web and desktop applications, handling front-end, back-end, database design, and UI/UX implementation.</li>
+							<li><strong>Practical Project Experience</strong><br />Built systems such as Life Coach, Hostel Management System, N-Maktaba, and UNIFORUMS to solve real-world and student-centered challenges.</li>
+							<li><strong>Technical Focus</strong><br />Strong hands-on experience with Python, JavaScript, Django, React, Vite, PostgreSQL, MySQL, SQLite, GitHub, Figma, and desktop application development.</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</div>
+
+		<footer id="footer" class="section-anchor">
+			<section id="contact">
+				<form id="contact-form">
+					<input type="hidden" name="_subject" value="New Portfolio Feedback - Nadil Portfolio">
+					<input type="hidden" name="_captcha" value="false">
+					<input type="hidden" name="_template" value="table">
+					<div class="fields">
+						<div class="field">
+							<label for="name">Name</label>
+							<input type="text" name="name" id="name" placeholder="Your name" required />
+						</div>
+						<div class="field">
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email" placeholder="your@email.com" required />
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="4" placeholder="Write your feedback here..." required></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" id="submit-btn" value="Send Message" /></li>
+					</ul>
+					<p class="feedback-note">Messages sent here will be delivered directly to my email so I can review your feedback.</p>
+					<div class="success-banner" id="form-success">Thank you. Your message has been sent successfully.</div>
+					<div class="error-banner" id="form-error">Message failed to send. Please try again.</div>
+				</form>
+			</section>
+			<section class="split contact">
+				<section class="alt">
+					<h3>Address</h3>
+					<p>Dar es Salaam, Tanzania</p>
+				</section>
+				<section>
+					<h3>Phone</h3>
+					<p><a href="tel:+255618566580">+255 618 566 580</a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="mailto:nadilsaad17@gmail.com">nadilsaad17@gmail.com</a></p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://x.com/nadil_saad" class="icon brands alt fa-twitter"><span class="label">X</span></a></li>
+						<li><a href="https://www.linkedin.com/nadil-saad" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://facebook.com/nadilsaad17" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="https://instagram.com/nadil_saad" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/nadilsaad" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+		<div id="copyright">
+			<ul>
+				<li>&copy; Nadil Saad</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		const contactForm = document.getElementById('contact-form');
+		const submitBtn = document.getElementById('submit-btn');
+		const successBanner = document.getElementById('form-success');
+		const errorBanner = document.getElementById('form-error');
+
+		if (contactForm) {
+			contactForm.addEventListener('submit', async function (e) {
+				e.preventDefault();
+				successBanner.classList.remove('show');
+				errorBanner.classList.remove('show');
+				submitBtn.value = 'Sending...';
+				submitBtn.disabled = true;
+
+				const formData = new FormData(contactForm);
+
+				try {
+					const response = await fetch('https://formsubmit.co/ajax/nadilsaad17@gmail.com', {
+						method: 'POST',
+						body: formData,
+						headers: {
+							'Accept': 'application/json'
+						}
+					});
+
+					const data = await response.json();
+
+					if (response.ok && (data.success === 'true' || data.success === true || data.message)) {
+						successBanner.classList.add('show');
+						contactForm.reset();
+					} else {
+						errorBanner.classList.add('show');
+					}
+				} catch (error) {
+					errorBanner.classList.add('show');
+				} finally {
+					submitBtn.value = 'Send Message';
+					submitBtn.disabled = false;
+				}
+			});
+		}
+	</script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
