@@ -4,7 +4,7 @@ Welcome to my personal portfolio website. This portfolio showcases my skills, fe
 
 ## About Me
 
-I am a second-year Information Systems Management student with strong skills in Database Systems, UI/UX design, website development, and desktop application development. I focus on creating innovative, user-centered digital solutions that address real-world challenges.
+I am a third-year Information Systems Management student with strong skills in Database Systems, UI/UX design, website & application development, and desktop application development. I focus on creating innovative, user-centered digital solutions that address real-world challenges.
 
 From designing intuitive interfaces to developing robust backend systems and integrating databases, I build complete and efficient digital products that deliver real value to users.
 
